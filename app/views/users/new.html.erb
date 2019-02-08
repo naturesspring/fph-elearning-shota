@@ -33,7 +33,9 @@
 <div class="form-group">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
-    
+    <% if @user.errors.messages[:password_confirmation].any? %>
+    <small class="text-danger"><%= :password_confirmation.capitalize %> <%= @user.errors.messages[:password_confirmation].first %></small>
+<% end %>
 </div>
 
 <%= f.submit "Create an account", class: "btn btn-primary btn-block" %>
