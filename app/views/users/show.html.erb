@@ -7,15 +7,14 @@
                     <div class="panel">
                         <div class="card-body">
                             <div class="text-center">
-                                <div class="avatar">
-                                    <div class="default">
-                                        <i class="glyphicon glyphicon-user"></i>
-                                    </div>
-                                </div>
-
-                                <%=image_tag("13.jpeg") %>
-
-                                <div class="media-body ml-3">
+                                <div class="avatar mx-auto" style="width: 150px;height: 150px;">                         
+                                    <% if @user.avatar?%>
+                                            <%= image_tag(@user.avatar.url) %>
+                                    <% else %>
+                                    <%=image_tag("13.jpeg", class: "avatar") %>
+                                    <% end %>
+                               </div>
+                                <div class="media-body ">
                                     <h1><%= @user.name %></h1>
                                     <p><%= @user.email %></p>
                                 </div>

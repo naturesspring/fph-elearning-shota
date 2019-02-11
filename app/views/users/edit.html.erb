@@ -3,6 +3,17 @@
   <h1 class="text-center">Settings</h1>
 
  <%= form_for @user do |f| %>
+
+        <div class="avatar mx-auto" style="width: 150px;height: 150px;">                         
+          <% if @user.avatar?%>
+           <%= image_tag(@user.avatar.url) %>
+            <% else %>
+            <%=image_tag("13.jpeg", class: "avatar") %>
+            <% end %>
+        </div>
+        <div class="form-group">
+              <%= f.file_field :avatar %>
+        </div>
        
         <div class="form-group">
             <%= f.label :name %>
@@ -34,6 +45,7 @@
             <small class="text-danger"><%= :password_confirmation.capitalize %> <%= @user.errors.messages[:password_confirmation].first %></small>
             <% end %>
         </div>
+         
 
         <%= f.submit "Edit account", class: "btn btn-primary btn-block" %>
  <% end %>
