@@ -8,7 +8,13 @@
        <div class="card">
         <div class="card-body">
          <div class="media">
+          <% if user.avatar?%>
+             <div class="avatar">
+                <%= image_tag(user.avatar.url) %>
+             </div>
+         <% else %>
          <%=image_tag("13.jpeg", class: "avatar") %>
+          <% end %>
            <div class="media-body">
    
 

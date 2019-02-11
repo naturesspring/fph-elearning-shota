@@ -12,9 +12,13 @@
                                         <i class="glyphicon glyphicon-user"></i>
                                     </div>
                                 </div>
-
-                                <%=image_tag("13.jpeg") %>
-
+                     
+                                <% if @user.avatar?%>
+                                     <div>
+                                        <%= image_tag(@user.avatar.url) %>
+                                     </div>
+                                <% end %>
+                               
                                 <div class="media-body ml-3">
                                     <h1><%= @user.name %></h1>
                                     <p><%= @user.email %></p>

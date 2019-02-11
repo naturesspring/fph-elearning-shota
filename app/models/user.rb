@@ -7,4 +7,5 @@ class User < ApplicationRecord
     validates :email, presence: true,
                   format: { with:  EMAIL_REGEX },
                   uniqueness: {case_sensitive: false }
+                  mount_uploader :avatar, AvatarUploader
 end
