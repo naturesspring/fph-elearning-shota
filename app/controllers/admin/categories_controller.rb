@@ -17,6 +17,33 @@ class Admin::CategoriesController < ApplicationController
           render "new" 
         end
   end
+
+  def edit
+    @category = Category.find(params[:id])
+
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    flash[:success] = "Successfully edited category!"
+
+    if @category.update(category_params)
+        redirect_to "/admin/categories"
+    else
+        render "edit"
+    end
+  end
+
+  def destroy
+    @category = Category.find(params[:id])
+    flash[:success] = "Successfully deleted category!"
+
+
+    @category.destroy
+
+    redirect_to "/admin/categories"
+  end
+
   private
   def category_params
     params.require(:category).permit(:title,:description)
