@@ -28,7 +28,7 @@ class Admin::CategoriesController < ApplicationController
     flash[:success] = "Successfully edited category!"
 
     if @category.update(category_params)
-        redirect_to "/admin/categories"
+        redirect_to "categories_path"
     else
         render "edit"
     end
@@ -41,7 +41,7 @@ class Admin::CategoriesController < ApplicationController
 
     @category.destroy
 
-    redirect_to "/admin/categories"
+    redirect_to "categories_path"
   end
 
   private

@@ -30,11 +30,14 @@
                     <%= category.description %>
                     </td>
 
-                    <td>
+                    <td class="btn btn-sm btn-warning text-white">
+                    
                        <%= link_to "Edit", edit_admin_category_path(category.id) %>
+                 
                     </td>
 
-                    <td>
+
+                    <td  class="btn btn-sm btn-default text-muted">
                     <%= link_to "delete", admin_category_path(category.id), method: :delete %>
                     </td>
 
