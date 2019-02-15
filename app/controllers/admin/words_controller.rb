@@ -7,7 +7,10 @@ class Admin::WordsController < ApplicationController
     def new 
         @category = Category.find(params[:category_id])
         @word = @category.words.new
+        3.times {@word.choices.new}
+
     end 
+
     def create 
         @category = Category.find(params[:category_id])
         @word = @category.words.new(word_params)
@@ -43,21 +46,19 @@ class Admin::WordsController < ApplicationController
        
         flash[:success] = "Successfully deleted category!"
     
-    
         @word.destroy
     
         redirect_to admin_category_words_path
       end
-
-
-
-
-
-
     
     private
         def word_params
-            params.require(:word).permit(:content)
+            params.require(:word).permit(
+                :content,
+                choices_attributes: [
+                    :content, :correct
+                ]
+            )
         end
    
 end
