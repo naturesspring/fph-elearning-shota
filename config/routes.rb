@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :users, except: :new
 
   namespace :admin do
-    resources :categories
+    resources :categories do
+      resources :words
+    end
   end
 end
