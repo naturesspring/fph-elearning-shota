@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories do
-      resources :words
-    end
+     resources :words
+   end 
   end
 end
