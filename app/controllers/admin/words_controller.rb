@@ -34,7 +34,7 @@ class Admin::WordsController < ApplicationController
         flash[:success] = "Successfully edited category!"
     
         if @word.update(word_params)
-            redirect_to admin_categories_path
+            redirect_to edit_admin_category_word_path
         else
             render "edit"
         end
@@ -56,7 +56,7 @@ class Admin::WordsController < ApplicationController
             params.require(:word).permit(
                 :content,
                 choices_attributes: [
-                    :content, :correct
+                    :id, :content, :correct
                 ]
             )
         end
