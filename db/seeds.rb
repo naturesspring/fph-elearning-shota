@@ -12,3 +12,9 @@
         password: "password"
     )
 end
+50.times do |n|
+    Category.create(
+        title: Faker::Company.name,
+        description: Faker::Football.player
+    )
+end
