@@ -1,0 +1,25 @@
+<h1>Categories</h1>
+
+
+<div class="row">
+  
+    <% @categories.each do |category| %>
+    <div class="col-md-6 mb-4">
+     <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"> 
+         <%= category.title %>
+        </h5>
+        <p class="card-text">
+        <%= category.description %>
+        </p>
+        <a href="#" class="btn btn-primary">Learn</a>
+      </div>
+    </div>
+    </div>
+    <% end %>
+</div>
+
+<div class="paginate mt-4">
+<%= will_paginate %>
+</div>
