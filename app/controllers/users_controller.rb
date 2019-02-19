@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+    before_action :require_login, except: [:new, :create]
 
     def index
-        @users = User.paginate(page: params[:page], per_page: 10)
+        @users = User.all.paginate(page: params[:page], per_page: 10)
     end
     
     def new 
@@ -44,13 +45,8 @@ class UsersController < ApplicationController
             params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
         end
 
-        def require_login
-            unless logged_in?
-            flash[:info] = "Please log in."
-            redirect_to login_url
-            end
-        end
+        
 
-
+        
     end
 

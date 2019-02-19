@@ -1,4 +1,6 @@
 class Admin::WordsController < ApplicationController
+    before_action :require_login 
+    before_action :admin_user
     def index 
         @category = Category.find(params[:category_id])
         @words = @category.words.order(created_at: :desc) 

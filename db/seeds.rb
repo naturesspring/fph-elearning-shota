@@ -18,3 +18,9 @@ end
         description: Faker::Football.player
     )
 end
+
+User.create!(name: "shota",
+            email: 'sasaki@gmail.com',
+            password: 'password',
+            password_confirmation:'password' ,
+            admin: true)

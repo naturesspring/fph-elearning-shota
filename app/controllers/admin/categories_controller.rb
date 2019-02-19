@@ -1,4 +1,7 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :require_login 
+  before_action :admin_user
+
   def index 
     @categories = Category.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
@@ -47,6 +50,4 @@ class Admin::CategoriesController < ApplicationController
   def category_params
     params.require(:category).permit(:title,:description)
   end
-
-
 end
