@@ -45,12 +45,7 @@ class UsersController < ApplicationController
             params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
         end
 
-        def require_login
-            unless logged_in?
-            flash[:info] = "Please log in."
-            redirect_to login_url
-            end
-        end
+        
 
         
     end
