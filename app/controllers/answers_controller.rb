@@ -10,12 +10,20 @@ class AnswersController < ApplicationController
 
     def create
         @category = Category.find(params[:category_id])
+        @words = @category.words
         lesson =   @category.lessons.order(created_at: :desc).find_by(user_id: current_user) 
-        
+      
         lesson.answers.create!( 
             choice_id: params[:choice_id],
             word_id: params[:word_id]
             )
-       redirect_to new_category_answer_path
+        
+        if  (@category.words - lesson.words).empty?
+            redirect_to lesson_path(lesson)
+        else
+            redirect_to new_category_answer_path
+        end
+
+
     end 
 end
