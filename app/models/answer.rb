@@ -1,3 +1,5 @@
 class Answer < ApplicationRecord
-    has_many :choices
+    belongs_to :choice
+    belongs_to :word
+    belongs_to :lesson
 end

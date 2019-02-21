@@ -16,11 +16,14 @@
            <h2><%= @word.content %></h2>
 
             <% @choices.each do |choice| %>
-          
-           <td>
                <% choice.content %>
-           </td>
-           <p><%= button_to choice.content,category_answers_path(ansewer: {word_id: @word.id,choice_id: choice.id}),class: "btn btn-outline-secondary btn-block" %></p>
+           <p><%= button_to choice.content,
+                  category_answers_path(
+                         word_id: @word.id,choice_id: choice.id
+                            ),
+                            method: :post,
+                            class: "btn btn-outline-secondary btn-block" %>
+            </p>
             <% end %>
          </div>
         </div>
