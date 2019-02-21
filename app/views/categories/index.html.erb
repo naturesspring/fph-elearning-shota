@@ -1,8 +1,5 @@
 <h1>Categories</h1>
-
-
 <div class="row">
-  
     <% @categories.each do |category| %>
     <div class="col-md-6 mb-4">
      <div class="card">
@@ -13,7 +10,9 @@
         <p class="card-text">
         <%= category.description %>
         </p>
-        <a href="/categories/:category_id/answers/new" class="btn btn-primary">Learn</a>
+        <%# <a href="/categories/:category_id/answers/new" class="btn btn-primary">Learn</a> %>
+        <%= button_to "Learn", lessons_path(lesson: {category_id: category.id}), method: :post ,class: "btn btn-primary" %>
+
       </div>
     </div>
     </div>

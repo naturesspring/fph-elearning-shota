@@ -5,7 +5,7 @@
       
       <div class="row" style="margin-bottom: 20px;">
          <div class="col-sm-6">
-            <h1>Title</h1>
+            <h1><%= @category.title %></h1>
          </div>
          <div class="col-sm-6 text-right">
             <h3 class="text-muted"><span class="text-warning">1</span> of 4</h3>
@@ -13,12 +13,18 @@
       </div>
         <div class="card p-3">
          <div class="text-info text-center">
-           <h2>word</h2>
-           <p><%= link_to "choice","#",class: "btn btn-outline-secondary btn-block" %></p>
+           <h2><%= @word.content %></h2>
 
-           <p><%= link_to "choice","#",class: "btn btn-outline-secondary btn-block" %></p>
-
-           <p><%= link_to "choice","#",class: "btn btn-outline-secondary btn-block" %></p>
+            <% @choices.each do |choice| %>
+               <% choice.content %>
+           <p><%= button_to choice.content,
+                  category_answers_path(
+                         word_id: @word.id,choice_id: choice.id
+                            ),
+                            method: :post,
+                            class: "btn btn-outline-secondary btn-block" %>
+            </p>
+            <% end %>
          </div>
         </div>
        
