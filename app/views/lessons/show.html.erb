@@ -12,25 +12,28 @@
                 <thead>
                     <tr>
                     <th scope="col">Word</th>
+                    <th scope="col">Your Answer</th>
                     <th scope="col">Correct Answer</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <%# <% @categories.each do |category| %> 
+                  <% @answers.each do |answer| %>
 
                         <tr>
-                        <td><h1>one</h1>
-                        <%# <%= link_to category.title, admin_category_words_path(category.id) %> 
+                        <td>
+                         <h1> <%= answer.word.content %></h1>
                         </td>
-
-                        <td><h1>two</h1>
-                        <%# <%= category.description %> 
-                        </td>
-
                         
+                        <td>
+                         <h1> <%= answer.word.your_answer %></h1>
+                        </td>
+
+                        <td>
+                         <h1> <%= answer.word.correct_answer.content %></h1>
+                        </td>
                         </tr>
-                    <%# <% end %> 
-                   
+                
+                   <% end %>
                 </tbody>
             </table>
     </div>

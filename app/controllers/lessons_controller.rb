@@ -5,5 +5,10 @@ class LessonsController < ApplicationController
     end 
 
     def show
-    end 
+        lesson  = Lesson.find(params[:id])
+        @answers = lesson.answers
+    end
+
+
+   
 end
