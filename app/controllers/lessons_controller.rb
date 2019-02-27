@@ -7,8 +7,11 @@ class LessonsController < ApplicationController
     def show
         lesson  = Lesson.find(params[:id])
         @answers = lesson.answers
+        @words = lesson.words
+        @result = lesson.result
+        
     end
-
+    
 
    
 end
