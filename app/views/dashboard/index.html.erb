@@ -1,0 +1,78 @@
+<main>
+    <div class="container py-1">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="panel">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <div class="avatar mx-auto" style="width: 150px;height: 150px;">                         
+                                    <% if current_user.avatar?%>
+                                            <%= image_tag(@user.avatar.url) %>
+                                    <% else %>
+                                    <%=image_tag("13.jpeg", class: "avatar") %>
+                                    <% end %>
+                               </div>
+                                <div class="media-body ">
+                                    <h1><%= current_user.name %></h1>
+                                    <p><%= current_user.email %></p>
+                                </div>
+                                <div class="row mt-15">
+                                  <div class="col-sm-6">
+                                     <%= link_to "View profile", user_path(id:current_user.id), class: "btn btn-sm btn-warning text-white" %>
+                                  </div>
+                                  <div class="col-sm-6">
+                                     <%= link_to "Update profile", edit_user_path(id:current_user.id), class: "btn btn-sm btn-info text-white" %>
+                                  </div>
+                                  </div>
+                            <hr>
+                                <div class="row mt-15">
+                                    <div class="col-sm-6">
+                                        <strong><a href="#">0</a></strong>
+                                        <div>following</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <strong><a href="#">0</a></strong>
+                                        <div>followers</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                             <div class="card mt-4">
+                                 <div class="card-body">
+                                   <a class="btn btn-info btn-block no-border p-3" href="#">
+                                     <h4>０</h4>words learned</a>
+                                </div>
+                            </div>
+
+                                        
+                        </div>
+                    </div>
+                </div>
+
+              <div class="col-sm-8 offset-sm-1">
+                    <div class="card activity-feed">
+                        <div class="well pt-0">
+                            <div class="card-header">
+                             <strong class="heading">Activity feed</strong>
+                             </div>
+
+                                <p class="text-muted">Nothing to show.</p>
+                                 <div class="card-footer paginate text-center"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                               
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
