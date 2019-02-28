@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "home#index"
+  
   get "/dashboard", to:"dashboard#index"
+  get "/words", to:"dashboard#words"
   get "/signup", to: "users#new"
   post "/login", to: "sessions#create"
   get "/login", to:"sessions#new"
