@@ -10,8 +10,11 @@
         <p class="card-text">
         <%= category.description %>
         </p>
-        <%# <a href="/categories/:category_id/answers/new" class="btn btn-primary">Learn</a> %>
-        <%= button_to "Learn", lessons_path(lesson: {category_id: category.id}), method: :post ,class: "btn btn-primary" %>
+       <% if lesson = current_user.lessons.find_by(category_id: category.id) %>
+          <%= link_to "Show result",lesson_path(lesson.id) %>
+       <% else %>
+         <%= button_to "Learn", lessons_path(lesson: {category_id: category.id}), method: :post ,class: "btn btn-primary" %>
+        <% end %>
 
       </div>
     </div>
